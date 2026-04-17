@@ -38,3 +38,24 @@ const rootRoute = createRootRoute({
     },
 })
 
+const indexRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/',
+    component: SaludoWen,
+})
+
+
+const Laboratorio1Route = createRoute({
+    getParentRoute: () => rootRoute, 
+    path: '/laboratorio1',
+    component: Laboratorio1
+})
+const BuscarPokemonRoute = createRoute({
+    getParentRoute: () => rootRoute,    
+    path: '/buscar-pokemon',
+    component: BuscarPokemonWen,
+})
+
+
+const routeTree = rootRoute.addChildren([indexRoute, Laboratorio1Route, BuscarPokemonRoute])
+ export const router = createRouter({ routeTree})
